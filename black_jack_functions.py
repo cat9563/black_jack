@@ -53,10 +53,10 @@ def error_handling():
             return val
         except ValueError:
             print("Less talk more give.\n")
+        print(val)
 
-def take_bets(bet):
+def take_bets():
     balance = 200 
-    users_bet = bet 
 
     while True:
         balance = 200
@@ -68,11 +68,16 @@ def take_bets(bet):
         else:
             print("GOOD LUCK CHAMP!")
             print(f"Thanks for your donation of ${users_bet}. The house appreciates you.\n")
-            return users_bet
+        return users_bet
 
-take_bets(error_handling())
-# # def double_down():
+def double_down(double_down):
+    bet = double_down
+    print(bet * 2)
+    return bet * 2
     
+
+d = take_bets()
+double_down(d)
 
 # # def split_hand():
     
