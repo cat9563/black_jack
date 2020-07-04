@@ -72,16 +72,27 @@ def take_bets():
 
 def double_down(double_down):
     bet = double_down
-    print(bet * 2)
     return bet * 2
     
 
-d = take_bets()
-double_down(d)
+def split_hand(prompt):
+    myDeck = dealers_deck()
+    split_hand = hand(myDeck)
+    player = split_hand[0]
 
-# # def split_hand():
+    split_hand1 = [player[0]]
+    split_hand2 = [player[1]]
+
+    if prompt == "S":
+        split_hand1.append(myDeck.pop())
+        split_hand2.append(myDeck.pop())
+    else:
+        pass
+    return split_hand1, split_hand2
+
+
     
-
+split_hand("S")
 
 # #game logic 
  
