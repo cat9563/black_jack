@@ -90,51 +90,47 @@ def split_hand(prompt):
         pass
     return split_hand1, split_hand2
 
-
-    
-split_hand("S")
-
-# #game logic 
+# game logic 
  
-# myDeck = dealers_deck()
-# hands = hand(myDeck)
-# dealer = hands[1]
-# player = hands[0]
+myDeck = dealers_deck()
+hands = hand(myDeck)
+dealer = hands[1]
+player = hands[0]
 
-# # keep track of the players score and the dealers score 
-# players_score = 0
-# dealers_score = 0
+# keep track of the players score and the dealers score 
+players_score = 0
+dealers_score = 0
 
-# # let the player know the game is about to begin
-# prompt = "Welcome to wonderful game of BlackJack will you make it bigtime or find yourself in the rags. Only time will tell"
-# print(prompt)
+# let the player know the game is about to begin
+prompt = "Welcome to wonderful game of BlackJack will you make it bigtime or find yourself in the rags. Only time will tell"
+print(prompt)
 
-# while players_score <= 21:
-#     playerCount = count_points(player)
-#     dealerCount = count_points(dealer)
-#     print(f"The dealer has: {dealer[0]} in their hand")
-#     print(f"The player has: {player[0]} {player[1]} in your hand")
-#     print(playerCount)
-#     print(dealerCount)
-#     prompt = input('h: hit, s:stand')
+while players_score <= 21:
+    playerCount = count_points(player)
+    dealerCount = count_points(dealer)
+    print(f"The dealer has: {dealer[0]} in their hand")
+    print(f"The player has: {player[0]} {player[1]} in your hand")
+    print(playerCount)
+    print(dealerCount)
+    prompt = input('h: hit, s:stand')
 
-#     if playerCount == 21:
-#         print("Blackjack good one you win!")
-#         break
-#     elif playerCount > 21:
-#         print("To bad so sad. You lose!!!")
-#         break
-#     elif dealerCount > 21:
-#         print("The dealer has lost congrats your one step closer to making your dreams come true.\nDon't worry about the stress you are causing on your family!")
-#         break
+    if playerCount == 21:
+        print("Blackjack good one you win!")
+        break
+    elif playerCount > 21:
+        print("To bad so sad. You lose!!!")
+        break
+    elif dealerCount > 21:
+        print("The dealer has lost congrats your one step closer to making your dreams come true.\nDon't worry about the stress you are causing on your family!")
+        break
 
-#     if prompt == "h":
-#         player.append(myDeck.pop())
-#         players_score = playerCount
-#         print(players_score)
-#     elif playerCount > dealerCount:
-#         print(f"you win with {playerCount} points")
-#         break
-#     else:
-#         print(f"Dealer wins with {dealerCount} points")
-#         break
+    if prompt == "h":
+        player.append(myDeck.pop())
+        players_score = playerCount
+        print(players_score)
+    elif playerCount > dealerCount:
+        print(f"you win with {playerCount} points")
+        break
+    else:
+        print(f"Dealer wins with {dealerCount} points")
+        break
