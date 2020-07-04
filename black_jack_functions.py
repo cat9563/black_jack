@@ -1,4 +1,5 @@
 from random import shuffle
+import sys
 
 # using this as exercise to work on functions will be working towards turning this into a class. 
 
@@ -42,17 +43,28 @@ def hand(myDeck):
     return players_hand, dealers_hand
 
 # working on these feature soon 
-# def take_bets():
-#     
+# def error_handling():
 
+def take_bets(bet):
+    balance = 100
+    users_bet = bet 
+
+    if users_bet > balance:
+        print("you don't have that much in your account.\nYou might want to head out to the pawnshop or work on your corner!") 
+    elif users_bet < 5:
+        print( "common man you don't have $5, seriously you need help!\nWe only take bets greater than $5!!")
+    else:
+        print("GOOD LUCK CHAMP!")
+        print(f"Thanks for your donation of ${users_bet}. The house appreciates you.")
+ 
 # def double_down():
-#     
+    
 
 # def split_hand():
-#     
+    
 
 
-# game logic 
+game logic 
  
 myDeck = dealers_deck()
 hands = hand(myDeck)
