@@ -1,7 +1,10 @@
 import random 
 import sys
 
-# using this as exercise to work on functions will be working towards turning this into a class. 
+# I was using this an exerices for functions it is incomplete and I will be switching over to learning about classes next. 
+# I think it will be much easier to deal with this in a class haha. I am also taking this to some folks in my network for feed back. 
+# If you are a potential employer and reading through this file I and would like to know more behind my thoughts on this please reach out.
+ 
 
 def create_deck(rank):
     """
