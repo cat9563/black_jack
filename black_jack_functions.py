@@ -81,6 +81,9 @@ def error_handling():
         print(val)
 
 def take_bets(b):
+    """
+    Takes in bet keeps track of balance 
+    """
     balance = b
 
     while True:
@@ -96,27 +99,11 @@ def take_bets(b):
         return users_bet
 
 def double_down(double_down):
+    """
+    doubles the amount of the bet 
+    """
     bet = double_down
     return bet * 2
-
-def dealing_with_aces(ph):
-    total_and_value  = sum_points(ph)
-    total = total_and_value[0]
-    value = total_and_value[1]
-    new_total = []
-
-    if total == 21:
-        print("Player __ is the winner with black jack")
-
-    if total > 21:
-        for i in value:
-            new_total.append(i)
-        for i, num in enumerate(new_total):
-            if num == 11:
-                new_total[i] = 1
-                new_totals = sum(new_total)
-        return new_totals
-
 
 #######################################################################
 # Creates a list of key value pairs in a dictionary                   #
@@ -140,79 +127,86 @@ completDict = Merge(no_faceCardsDict, faceCardDict, aceCardDict)
 #######################################################################
 
 ############################################################
-# Provied Logic for Player and Dealer Hand                 #
+# Variables                                                #
 ############################################################
 
 # get some player hands 
 players_hand = deal_hand(shuffle_deck(), 2)
 dealers_hand = deal_hand(shuffle_deck(), 2)
 
-
 #account for points if value is 21 part of first check
 player_points = sum_points(players_hand)
 dealers_points = sum_points(dealers_hand)
-
-
-# accounting for points when the value is less than 21 
-
-
 
 #Dealing with aces
 values = players_hand.values()
 new_hand_total = sum(values)
 
-
-# for i in values:
-#     players_hand_initial_pair.append(i)
-# print(players_hand_initial_pair)
-# print(new_hand_total)
-
-
 #Greeting
 greeting = input("Welcome to Casino Cat! To start the game enter s to quit game enter q!! Have fun!!")
-
 
 #Dealing with Aces
 if player_points[0] == 21:
     print(f"\nTable View:\n\nPlayers Hand: {players_hand}\nPlayers Points: {player_points[0]}\nPlayer wins with Black Jack!!!")
 
-
 ############################################################################W
 #  Get the value of a new card and append it to the values of original hand #
 #############################################################################
 ######################################################################################################
-# 1st we append the values to the list below
+# Append the values to the list below
 players_hand_initial_pair = []
 for i in values:
     players_hand_initial_pair.append(i)
 
-#find the sum of the hand 
 players_total = sum(players_hand_initial_pair)
-
-print(f"Getting the values and appending them to a list: {players_hand_initial_pair}")
- 
+######################################################################################################
 # put in while loop 
 while players_total < 21: 
+
+    prompt = input("hit: h, stand: s")
+    if prompt == 'h':
 # We get the values of a new card and append them to new card list 
-    new_card_list = []
+        new_card_list = []
 # define a new card 
-    new_card = deal_hand(shuffle_deck(), 1)
+        new_card = deal_hand(shuffle_deck(), 1)
 #get the value of the new card 
-    new_card_value = new_card.values()
+        new_card_value = new_card.values()
 # append the value to new card list 
-    for i in new_card_value:
-        new_card_list.append(i)
+        for i in new_card_value:
+            new_card_list.append(i)
 # append the value of new card list to the initial pair list
-    players_hand_initial_pair.extend(new_card_list)
+        players_hand_initial_pair.extend(new_card_list)
+
+    if prompt == 's':
+        print(f"Player stands with a score of {players_total}")
+
+    if players_total >= 10:
+        for i, num in enumerate(players_hand_initial_pair):
+            if num == 11:
+                players_hand_initial_pair[i] = 1
+
+    if players_total == 21:
+        print("player wins")
+        break
+    # elif players_total > dealers_points[1]:
+    #     print("players wins")
+    #     break
+    else:
+        print("dealer wins")
+######################################################################################################
+######################################################################################################
+
 # get the players total 
     players_total = sum(players_hand_initial_pair)
+    print(players_hand_initial_pair)
     print(f"The hand total in loop is: {players_total}")
     
 ######################################################################################################
 ######################################################################################################
-# Using this to display to scree the hand and the total value of the hand. 
+# Using this to display to screen the hand and the total value of the hand. 
 #takes new_card variable and merges it to the existing hand
     ph_add_card = add_card_to_hand(players_hand,new_card)
 #function above outputs two type of information the key value pair and just the values printing the values here 
-    print(f"printing the values for ph_add_card function {ph_add_card[1]}")
+    print(f"printing the values for ph_add_card function {ph_add_card[0]}")
+######################################################################################################
 ######################################################################################################
