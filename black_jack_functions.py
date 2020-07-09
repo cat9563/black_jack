@@ -1,9 +1,5 @@
 import random 
 import sys
-
-# I was using this an exerices for functions it is incomplete and I will be switching over to learning about classes next. 
-# I think it will be much easier to deal with this in a class haha. I am also taking this to some folks in my network for feed back. 
-# If you are a potential employer and reading through this file I and would like to know more behind my thoughts on this please reach out.
  
 
 def create_deck(rank):
@@ -182,6 +178,7 @@ while players_total < 21:
 
     if prompt == 's':
         print(f"Player stands with a score of {players_total}")
+        
 
     if players_total >= 10:
         for i, num in enumerate(players_hand_initial_pair):
@@ -196,6 +193,7 @@ while players_total < 21:
     #     break
     else:
         print("dealer wins")
+        break
 ######################################################################################################
 ######################################################################################################
 
